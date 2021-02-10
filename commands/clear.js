@@ -12,7 +12,7 @@ module.exports.run = async (bot, message, args) => {
     if (!message.member.hasPermission("MANAGE_MESSAGES")) {
         var embed1 = new Discord.MessageEmbed()
             .setAuthor(message.author.tag, message.author.displayAvatarURL())
-            .setDescription('**Nemate premisije za upotrebu ove komande!**')
+            .setDescription('<:denied:788762769440374855> **Nemate premisije za upotrebu ove komande!**')
             .setColor('RED')
         message.channel.send(embed1).then((message) => {
             message.delete({ timeout: 5000 })
@@ -22,7 +22,7 @@ module.exports.run = async (bot, message, args) => {
     if (isNaN(args1) || parseInt(args1) <= 0) {
         var embed2 = new Discord.MessageEmbed()
             .setAuthor(message.author.tag, message.author.displayAvatarURL())
-            .setDescription('**Nepravilna upotreba komande!**')
+            .setDescription('<:denied:788762769440374855> **Nepravilna upotreba komande!**')
             .setColor('RED')
         message.channel.send(embed2).then((message) => {
             message.delete({ timeout: 5000 })
