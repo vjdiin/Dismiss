@@ -1,10 +1,14 @@
 const Discord = require('discord.js');
 const botsettings = require('./botsettings.json');
+const mongoose = require('mongoose');
 const ms = require("ms");
 
 const bot = new Discord.Client({ disableEveryone: true });
 
-require("./util/eventHandler")(bot)
+require("./util/eventHandler")(bot);
+
+mongoose.connect('mongodb+srv://vjdin:Ajdin321@dismiss.lkgeo.mongodb.net/database', { useNewUrlParser: true, useUnifiedTopology: true, })
+mongoose.set('useFindAndModify', false);
 
 const fs = require("fs");
 bot.commands = new Discord.Collection();
