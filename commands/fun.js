@@ -9,7 +9,7 @@ module.exports.run = async (bot, message, args) => {
 
     if (!helpArgs[0]) {
         var embed = new Discord.MessageEmbed()
-            .setAuthor(`🌀| Dismiss™ | Ljubav`, member.user.displayAvatarURL())
+            .setAuthor(`🌀| Dismiss™ | Zabava`, member.user.displayAvatarURL())
             .addFields({ name: '**%avatar [Član]**', value: '```Prikaže avatar osobe```', inline: false })
             .addFields({ name: '**%gay [Član]**', value: '```Vidite koliko % ste gay```', inline: false })
             .addFields({ name: '**%meme**', value: '```Dobijete meme sa reddita```', inline: false })

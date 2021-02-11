@@ -22,12 +22,12 @@ module.exports.run = async (bot, message, args) => {
         .setAuthor('🌀| Dismiss™ | Informacije člana', message.author.displayAvatarURL())
         .setColor('#00FFF3')
         .setImage(member.user.displayAvatarURL())
-        .addField("Tag:", member.user.tag)
-        .addField("ID Člana:", member.id)
-        .addField('Rolovi:', `<@&${member._roles.join('> <@&')}>`)
-        .addField("Račun napravljen:", ` ${moment.utc(member.user.createdAt).format("dddd, MMMM Do YYYY")}`, true)
-        .addField('Ušao/la u server:', `${joineddate} \n> Prije ${joined} dana`)
-        .addField("Status:", status)
+        .addField("**Tag:**", member.user.tag)
+        .addField("**ID Člana:**", member.id)
+        .addField('**Rolovi:**', `<@&${member._roles.join('> <@&')}>`)
+        .addField("**Račun napravljen:**", ` ${moment.utc(member.user.createdAt).format("dddd, MMMM Do YYYY")}`, true)
+        .addField('**Ušao/la u server:**', `${joineddate} \n> Prije ${joined} dana`)
+        .addField("**Status:**", status)
         .setFooter('🌀| Dismiss™ by vjdin', 'https://cdn.discordapp.com/attachments/756139786560864299/795607439236005888/logo.png')
     message.channel.send(userEmbed);
 }
