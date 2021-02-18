@@ -7,16 +7,15 @@ module.exports.run = async (bot, message, args) => {
     let member = message.mentions.members.first() || message.guild.members.cache.get(userArgs[0]) || message.guild.members.cache.find(x => x.user.username.toLowerCase() === userArgs.slice(0).join(" ") || x.user.username === userArgs[0]) || message.member;
     let randNo = Math.floor(Math.random() * 100 + 1);
     var embed = new Discord.MessageEmbed()
-        .setTitle("Gay Mašina")
-        .setDescription(`${member} je **${randNo}%** gay 🏳️‍🌈`)
+        .setTitle("peepee Mašina")
+        .setDescription(`${member}´s penis \n 8${'='.repeat(Math.floor(Math.random() * 10 + 1))}D`)
         .setColor("RANDOM")
     message.channel.send(embed);
 }
 
 module.exports.config = {
-    name: "gay",
+    name: "pp",
     description: "",
-    usage: "%gay",
-    accessableby: "Admins",
-    aliases: ['howgay', 'gayrate']
+    usage: "%pp",
+    aliases: ['penis']
 }

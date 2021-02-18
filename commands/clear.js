@@ -37,14 +37,16 @@ module.exports.run = async (bot, message, args) => {
         deleteAmount = parseInt(args1);
     }
 
-    message.channel.bulkDelete(deleteAmount, true)
-    var embed3 = new Discord.MessageEmbed()
-        .setAuthor(message.author.tag, message.author.displayAvatarURL())
-        .setDescription(`<:accepted:788762768940597259> Uspješno obrisano **${deleteAmount}** poruka!`)
-        .setColor('GREEN')
-    message.channel.send(embed3).then((message) => {
-        message.delete({ timeout: 5000 })
-    });
+    if (!isNaN(args1) || !parseInt(args1) <= 0) {
+        message.channel.bulkDelete(deleteAmount, true)
+        var embed3 = new Discord.MessageEmbed()
+            .setAuthor(message.author.tag, message.author.displayAvatarURL())
+            .setDescription(`<:accepted:788762768940597259> Uspješno obrisano **${deleteAmount}** poruka!`)
+            .setColor('GREEN')
+        message.channel.send(embed3).then((message) => {
+            message.delete({ timeout: 5000 })
+        });
+    }
 }
 
 module.exports.config = {

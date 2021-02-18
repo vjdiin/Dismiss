@@ -15,8 +15,8 @@ module.exports.run = async (bot, message, args) => {
             .addFields({ name: '**%tempmute [Član] (Vrijeme)**', value: '```Privremeno mjuta člana```', inline: false })
             .addFields({ name: '**%mute [Član]**', value: '```Mjuta člana```', inline: false })
             .addFields({ name: '**%unmute [Član]**', value: '```Unmjuta člana```', inline: false })
-            .addFields({ name: '**%ban [Članov ID]**', value: '```Banuje člana```', inline: false })
-            .addFields({ name: '**%kick [Članov ID]**', value: '```Kikuje člana```', inline: false })
+            .addFields({ name: '**%ban [Član]**', value: '```Banuje člana```', inline: false })
+            .addFields({ name: '**%kick [Član]**', value: '```Kikuje člana```', inline: false })
             .setColor('#00FFF3')
             .setFooter('🌀| Dismiss™ by vjdin', 'https://cdn.discordapp.com/attachments/756139786560864299/795607439236005888/logo.png')
 
