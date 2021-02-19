@@ -7,7 +7,7 @@ module.exports.run = async (bot, message, args) => {
 
     if (!message.member.hasPermission(['VIEW_AUDIT_LOG']))
         var embed1 = new Discord.MessageEmbed()
-            .setAuthor(message.author.tag, message.author.displayAvatarURL())
+            .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
             .setDescription('<:denied:788762769440374855> **Nemate premisije za upotrebu ove komande!**')
             .setColor('RED')
     message.channel.send(embed1).then((message) => {
@@ -20,7 +20,7 @@ module.exports.run = async (bot, message, args) => {
     if (mutedRole) {
         member.roles.add(mutedRole);
         var embed2 = new Discord.MessageEmbed()
-            .setAuthor(message.author.tag, message.author.displayAvatarURL())
+            .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
             .setDescription(`<:accepted:788762768940597259> ${member} **je uspješno mjutan/na!**`)
             .setColor('GREEN')
         message.channel.send(embed2).then((message) => {

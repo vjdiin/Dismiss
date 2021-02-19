@@ -6,7 +6,9 @@ module.exports.run = async (bot, message, args) => {
     const cmd = messageArray[0];
     const args1 = messageArray.slice(1);
 
-    let question = args1.slice(1).join(" ");
+    bot.prefix = "%"
+    
+    let question = message.content.slice(bot.prefix.length + 6)
 
     if (question) {
         let responses = [
@@ -28,7 +30,7 @@ module.exports.run = async (bot, message, args) => {
         let Response = responses[Math.floor(Math.random() * (responses.length))];
 
         var embed2 = new Discord.MessageEmbed()
-            .setAuthor(message.author.tag, message.author.displayAvatarURL())
+            .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
             .setDescription("🎱 **8ball**")
             .addField(`**Pitanje:**`, `${question}`)
             .addField(`**Odgovor:**`, `${Response}`)

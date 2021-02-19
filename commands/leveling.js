@@ -9,7 +9,7 @@ module.exports.run = async (bot, message, args) => {
 
     if (!helpArgs[0]) {
         var embed = new Discord.MessageEmbed()
-            .setAuthor(`🌀| Dismiss™ | Leveling`, member.user.displayAvatarURL())
+            .setAuthor(`🌀| Dismiss™ | Leveling`, member.user.displayAvatarURL({ dynamic: true }))
             .addFields({ name: '**%level**', value: '```Vidite koji ste level```', inline: false })
             .addFields({ name: '**%leaderboard**', value: '```Prikaže ljestvicu najaktivnijih```', inline: false })
             .setColor('#00FFF3')

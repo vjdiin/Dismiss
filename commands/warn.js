@@ -10,7 +10,7 @@ module.exports.run = async (bot, message, args) => {
 
     if (!message.member.hasPermission("MANAGE_MESSAGES")) {
         var embed1 = new Discord.MessageEmbed()
-            .setAuthor(message.author.tag, message.author.displayAvatarURL())
+            .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
             .setDescription('<:denied:788762769440374855> **Nemate premisije za upotrebu ove komande!**')
             .setColor('RED')
         message.channel.send(embed1).then((message) => {
@@ -24,7 +24,7 @@ module.exports.run = async (bot, message, args) => {
 
     if (!reason) {
         var embed2 = new Discord.MessageEmbed()
-            .setAuthor(message.author.tag, message.author.displayAvatarURL())
+            .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
             .setDescription('<:denied:788762769440374855> **Niste naveli razlog upozorenja!**')
             .setColor('RED')
         message.channel.send(embed2).then((message) => {
@@ -47,7 +47,7 @@ module.exports.run = async (bot, message, args) => {
 
         if (reason) {
             var embed5 = new Discord.MessageEmbed()
-                .setAuthor(message.author.tag, message.author.displayAvatarURL())
+                .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
                 .setDescription(`<:accepted:788762768940597259> ${toWarn} **je upozoren!** \n **Razlog:** \`${reason}\``)
                 .setColor('GREEN')
             message.channel.send(embed5).then((message) => {
@@ -68,7 +68,7 @@ module.exports.run = async (bot, message, args) => {
         newData.save();
 
         var embed4 = new Discord.MessageEmbed()
-            .setAuthor(message.author.tag, message.author.displayAvatarURL())
+            .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
             .setDescription(`<:accepted:788762768940597259> ${toWarn} **je upozoren!** \n **Razlog:** \`${reason}\``)
             .setColor('GREEN')
         message.channel.send(embed4).then((message) => {

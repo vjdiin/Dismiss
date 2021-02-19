@@ -10,7 +10,7 @@ module.exports.run = async (bot, message, args) => {
     const embed = new Discord.MessageEmbed()
 
     if (!message.mentions.users.first()) {
-        embed.setAuthor(member.user.tag, member.user.displayAvatarURL({ dynamic: true, size: 1024 }))
+        embed.setAuthor(member.user.tag, member.user.displayAvatarURL({ dynamic: true }))
         embed.setTitle("**Avatar:**")
         embed.setImage(avatar)
         embed.setColor("RANDOM")
@@ -20,7 +20,7 @@ module.exports.run = async (bot, message, args) => {
     } else {
 
         const user = message.mentions.users.first()
-        embed.setAuthor(member.user.tag, member.user.displayAvatarURL({ dynamic: true, size: 1024 }))
+        embed.setAuthor(member.user.tag, member.user.displayAvatarURL({ dynamic: true }))
         embed.setTitle(`**Avatar:**`)
         embed.setImage(avatar)
         embed.setColor('RANDOM')

@@ -9,7 +9,7 @@ module.exports.run = async (bot, message, args) => {
 
     if (!helpArgs[0]) {
         var embed = new Discord.MessageEmbed()
-            .setAuthor(`🌀| Dismiss™ | Informacije servera`, member.user.displayAvatarURL())
+            .setAuthor(`🌀| Dismiss™ | Informacije servera`, member.user.displayAvatarURL({ dynamic: true }))
             .addFields({ name: '**Vlasnik**', value: 'vjdin#4667', inline: true })
             .addFields({ name: '**Regija**', value: 'Europa', inline: true })
             .addFields({ name: '**Server ID**', value: '754336174084194305', inline: true })

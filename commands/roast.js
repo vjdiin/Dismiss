@@ -8,7 +8,7 @@ module.exports.run = async (bot, message, args) => {
 
     if (!args[0]) {
         var embed1 = new Discord.MessageEmbed()
-            .setAuthor(message.author.tag, message.author.displayAvatarURL())
+            .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
             .setDescription('<:denied:788762769440374855> **Nepravilna upotreba komande!**')
             .setColor('RED')
         message.channel.send(embed1).then((message) => {
@@ -18,7 +18,7 @@ module.exports.run = async (bot, message, args) => {
 
     if (!member) {
         var embed2 = new Discord.MessageEmbed()
-            .setAuthor(message.author.tag, message.author.displayAvatarURL())
+            .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
             .setDescription('<:denied:788762769440374855> **Nepravilna upotreba komande!**')
             .setColor('RED')
         message.channel.send(embed2).then((message) => {
@@ -30,7 +30,7 @@ module.exports.run = async (bot, message, args) => {
         .then(res => res.json())
         .then(json => {
             const embed3 = new Discord.MessageEmbed()
-                .setAuthor(message.author.tag, message.author.displayAvatarURL())
+                .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
                 .setDescription(`${member}, **${json.insult}**`)
                 .setColor('RANDOM')
                 .setFooter('🌀| Dismiss™ by vjdin', 'https://cdn.discordapp.com/attachments/756139786560864299/795607439236005888/logo.png')

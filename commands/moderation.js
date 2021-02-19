@@ -9,7 +9,7 @@ module.exports.run = async (bot, message, args) => {
 
     if (!helpArgs[0]) {
         var embed = new Discord.MessageEmbed()
-            .setAuthor(`🌀| Dismiss™ | Moderacija`, member.user.displayAvatarURL())
+            .setAuthor(`🌀| Dismiss™ | Moderacija`, member.user.displayAvatarURL({ dynamic: true }))
             .addFields({ name: '**%warn [Član] (Razlog)**', value: '```Upozoravanje člana```', inline: false })
             .addFields({ name: '**%clear [Broj poruka]**', value: '```Briše određeni broj poruka```', inline: false })
             .addFields({ name: '**%tempmute [Član] (Vrijeme)**', value: '```Privremeno mjuta člana```', inline: false })

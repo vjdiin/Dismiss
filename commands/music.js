@@ -9,7 +9,7 @@ module.exports.run = async (bot, message, args) => {
 
     if (!helpArgs[0]) {
         var embed = new Discord.MessageEmbed()
-            .setAuthor(`🌀| Dismiss™ | Muzika`, member.user.displayAvatarURL())
+            .setAuthor(`🌀| Dismiss™ | Muzika`, member.user.displayAvatarURL({ dynamic: true }))
             .addFields({ name: '**%play**', value: '```Pustite muziku```', inline: false })
             .addFields({ name: '**%stop**', value: '```Zaustavite muziku```', inline: false })
             .addFields({ name: '**%skip**', value: '```Skipujete muziku```', inline: false })

@@ -9,7 +9,7 @@ module.exports.run = async (bot, message, args) => {
 
     if (!helpArgs[0]) {
         var embed = new Discord.MessageEmbed()
-            .setAuthor(`🌀| Dismiss™ | Ljubav`, member.user.displayAvatarURL())
+            .setAuthor(`🌀| Dismiss™ | Ljubav`, member.user.displayAvatarURL({ dynamic: true }))
             .addFields({ name: '**%ship [Član]**', value: '```Shipujete člana```', inline: false })
             .addFields({ name: '**%kiss [Član]**', value: '```Poljubite člana```', inline: false })
             .addFields({ name: '**%hug [Član]**', value: '```Zagrlite člana```', inline: false })

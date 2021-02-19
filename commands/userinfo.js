@@ -19,7 +19,7 @@ module.exports.run = async (bot, message, args) => {
     let status = member.presence.status;
 
     const userEmbed = new Discord.MessageEmbed()
-        .setAuthor('🌀| Dismiss™ | Informacije člana', message.author.displayAvatarURL())
+        .setAuthor('🌀| Dismiss™ | Informacije člana', message.author.displayAvatarURL({ dynamic: true }))
         .setColor('#00FFF3')
         .setImage(member.user.displayAvatarURL())
         .addField("**Tag:**", member.user.tag)

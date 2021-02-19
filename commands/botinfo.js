@@ -9,7 +9,7 @@ module.exports.run = async (bot, message, args) => {
 
     if (!helpArgs[0]) {
         var embed = new Discord.MessageEmbed()
-            .setAuthor(`🌀| Dismiss™ | Informacije bota`, member.user.displayAvatarURL())
+            .setAuthor(`🌀| Dismiss™ | Informacije bota`, member.user.displayAvatarURL({ dynamic: true }))
             .addFields({ name: '**Ime bota**', value: '🌀| Dismiss™', inline: false })
             .addFields({ name: '**Developer bota**', value: 'vjdin#4667', inline: false })
             .addFields({ name: '**Prefix**', value: '%', inline: false })

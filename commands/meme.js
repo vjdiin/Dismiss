@@ -13,7 +13,7 @@ module.exports.run = async (bot, message, args) => {
         let memeUpvotes = content[0].data.children[0].data.ups;
         let memeDownvotes = content[0].data.children[0].data.downs;
         let memeNumComments = content[0].data.children[0].data.num_comments;
-        embed.setAuthor(message.author.tag, message.author.displayAvatarURL())
+        embed.setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
         embed.setTitle(`${memeTitle}`)
         embed.setURL(`${memeUrl}`)
         embed.setImage(memeImage)

@@ -9,7 +9,7 @@ module.exports.run = async (bot, message, args) => {
 
     if (!helpArgs[0]) {
         var embed = new Discord.MessageEmbed()
-            .setAuthor(`🌀| Dismiss™ | Info`, member.user.displayAvatarURL())
+            .setAuthor(`🌀| Dismiss™ | Info`, member.user.displayAvatarURL({ dynamic: true }))
             .addFields({ name: '**%ping**', value: '```Dobijete informacije o pingu bota```', inline: false })
             .addFields({ name: '**%userinfo [Član]**', value: '```Prikaže informacije o članu```', inline: false })
             .addFields({ name: '**%serverinfo**', value: '```Prikaže informacije o serveru```', inline: false })
