@@ -5,8 +5,7 @@ module.exports.run = async (bot, message, args) => {
 	const cmd = messageArray[0];
 	const args1 = messageArray.slice(1);
 
-    const channel = message.guild.channels.cache.find(c => c.name === '💧・chat');
-    if (!channel) return message.channel.send('suggestions channel does not exist!');
+    const channel = message.guild.channels.cache.find(c => c.name === '🧭・sugestije');
 
     let messageArgs = args1.join(' ');
     const embed = new Discord.MessageEmbed()

@@ -13,6 +13,7 @@ module.exports.run = async (bot, message, args) => {
             .addFields({ name: '**%play**', value: '```Pustite muziku```', inline: false })
             .addFields({ name: '**%stop**', value: '```Zaustavite muziku```', inline: false })
             .addFields({ name: '**%skip**', value: '```Skipujete muziku```', inline: false })
+            .addFields({ name: '**%loop**', value: '```Ponavljate muziku```', inline: false })
             .addFields({ name: '**%queue**', value: '```Vidite red naručenih pjesama```', inline: false })
             .addFields({ name: '**%autoplay**', value: '```Uključite/isključite autoplay```', inline: false })
             .setColor('#00FFF3')

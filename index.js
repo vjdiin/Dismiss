@@ -1,9 +1,29 @@
 const Discord = require('discord.js');
+const bot = new Discord.Client({
+    partials: ['MESSAGE', 'CHANNEL', 'REACTION']
+});
 const botsettings = require('./botsettings.json');
 const mongoose = require('mongoose');
 const ms = require("ms");
+const DisTube = require('distube');
 
-const bot = new Discord.Client({ disableEveryone: true });
+bot.distube = new DisTube(bot, { searchSongs: false, emitNewSongOnly: true });
+bot.distube
+    .on("playSong", (message, queue, song) => {
+        var embed1 = new Discord.MessageEmbed()
+            .setTitle("Sada se reproducira:")
+            .setDescription(`${song.name} - \`${song.formattedDuration}\` [${song.user}]`)
+            .setColor('GREEN')
+        message.channel.send(embed1);
+    })
+
+    .on("addSong", (message, queue, song) => {
+        var embed2 = new Discord.MessageEmbed()
+            .setTitle("Pjesma dodata:")
+            .setDescription(`${song.name} - \`${song.formattedDuration}\` [${song.user}]`)
+            .setColor('GREEN')
+        message.channel.send(embed2);
+    })
 
 require("./util/eventHandler")(bot);
 
