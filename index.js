@@ -7,6 +7,22 @@ const mongoose = require('mongoose');
 const ms = require("ms");
 const DisTube = require('distube');
 
+bot.on("guildMemberAdd", member => {
+    const welcomeChannel = member.guild.channels.cache.find(channel => channel.name === '💧・chat')
+    var welcomeEmbed = new Discord.MessageEmbed()
+        .setColor("#00FFF3")
+        .setDescription("<:novo:788762770593546241> **Novi član!**")
+        .addFields({ name: '** **', value: `<:tada_d:807184344023433217>・Hej ${member} dobrodošao/la u **🌀| Dismiss™️**! \n <:strelica_note:788762774741843988>・**Obavezno** pročitaj <#756452433541988352> \n <:d_gg:813101466532446240>・Nadam se da ćeš se **zabaviti** i **uživaj**!`, inline: true })
+        .setThumbnail(member.user.displayAvatarURL({ dynamic: true }))
+        .setFooter('🌀| Dismiss™ by vjdin', 'https://cdn.discordapp.com/attachments/756139786560864299/795607439236005888/logo.png')
+    welcomeChannel.send(welcomeEmbed);
+})
+
+bot.on("guildMemberRemove", member => {
+    const welcomeChannel = member.guild.channels.cache.find(channel => channel.name === '💥・izašli')
+    welcomeChannel.send(`${member} **je napustio server!**`)
+})
+
 bot.distube = new DisTube(bot, { searchSongs: false, emitNewSongOnly: true });
 bot.distube
     .on("playSong", (message, queue, song) => {

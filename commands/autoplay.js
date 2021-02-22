@@ -13,17 +13,7 @@ module.exports.run = async (bot, message, args) => {
     }
 
     const mode = bot.distube.toggleAutoplay(message);
-    const On = "Uključen";
-    const Off = "Isključen";
-
-    var embed2 = new Discord.MessageEmbed()
-        .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
-        .setDescription(`<:accepted:788762768940597259> Autoplay je **" + (${mode} ? ${On}" : ${Off}) + "**`)
-        .setColor('GREEN')
-    message.channel.send(embed2).then((message) => {
-        message.delete({ timeout: 5000 })
-    });
-    // message.channel.send("Set autoplay mode to `" + (mode ? "On" : "Off") + "`");
+    message.channel.send("Autoplay je **" + (mode ? "Uključen" : "Isključen") + "**");
 };
 
 module.exports.config = {
