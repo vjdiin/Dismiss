@@ -8,4 +8,3 @@ module.exports.config = {
     name: "template",
     aliases: []
 }
-

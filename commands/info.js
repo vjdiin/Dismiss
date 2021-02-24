@@ -14,6 +14,7 @@ module.exports.run = async (bot, message, args) => {
             .addFields({ name: '**%userinfo [Član]**', value: '```Prikaže informacije o članu```', inline: false })
             .addFields({ name: '**%serverinfo**', value: '```Prikaže informacije o serveru```', inline: false })
             .addFields({ name: '**%botinfo**', value: '```Prikaže informacije o 🌀| Dismiss™ botu```', inline: false })
+            .addFields({ name: '**%suggest (Prijedlog)**', value: '```Predložite nešto za server```', inline: false })
             .addFields({ name: '**%prefix**', value: '```Prikaže prefix servera```', inline: false })
             .addFields({ name: '**%help**', value: '```Dobijete glavni help menu```', inline: false })
             .setColor('#00FFF3')

@@ -6,7 +6,7 @@ module.exports.run = async (bot, message, args) => {
 
     if (!helpArgs[0]) {
         var embed = new Discord.MessageEmbed()
-            .setDescription('**Prefix ovog servera je %.**')
+            .setDescription('**Prefix ovog bota je %.**')
             .setColor('#00FFF3')
         message.channel.send(embed);
     }

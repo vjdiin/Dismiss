@@ -5,8 +5,10 @@
   "main": "index.js",
   "dependencies": {
     "@discordjs/opus": "^0.4.0",
+    "canvacord": "^5.0.8",
+    "discord-xp": "^1.1.7",
     "discord.js": "^12.5.1",
-    "distube": "^2.8.8",
+    "distube": "^2.8.9",
     "fetch": "^1.1.0",
     "ffmpeg-static": "^4.2.7",
     "git": "^0.1.5",
