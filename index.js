@@ -8,9 +8,7 @@ const ms = require("ms");
 const DisTube = require('distube');
 const Levels = require("discord-xp");
 
-Levels.setURL("mongodb+srv://vjdin:Ajdin321@dismiss.lkgeo.mongodb.net/database")
-mongoose.connect('mongodb+srv://vjdin:Ajdin321@dismiss.lkgeo.mongodb.net/database', { useNewUrlParser: true, useUnifiedTopology: true, })
-mongoose.set('useFindAndModify', false);
+Levels.setURL("mongodb+srv://vjdin:Ajdin321@dismiss.lkgeo.mongodb.net/database");
 
 bot.on("message", async message => {
     if (!message.guild) return;
@@ -28,30 +26,17 @@ bot.on("message", async message => {
     const hasLeveledUp = await Levels.appendXp(message.author.id, message.guild.id, randomXp);
     if (hasLeveledUp) {
         const user = await Levels.fetch(message.author.id, message.guild.id);
-        message.channel.send(`<:d_tada:807184344023433217> **Čestitam** ${member}, upravo si prešao/la na level **${user.level}**!`);
+        message.channel.send(`<:d_tada:807184344023433217> **Čestitam** ${message.author.toString()}, upravo si prešao/la na level **${user.level}**!`);
 
-        if (command === "%leaderboard" || command === "%lb") {
+        if (command === '%leaderboard' || command === '%lb') {
             const rawLeaderboard = await Levels.fetchLeaderboard(message.guild.id, 5);
-            if (rawLeaderboard.length < 1) {
-                var embed1 = new Discord.MessageEmbed()
-                    .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
-                    .setColor("RED")
-                    .setDescription("<:d_denied:788762769440374855> **Niko još nije na ljestvici!**")
-                message.channel.send(embed1).then((message) => {
-                    message.delete({ timeout: 5000 })
-                });
-            }
+            if (rawLeaderboard.length < 1) return reply("Nobody's in leaderboard yet.");
 
             const leaderboard = Levels.computeLeaderboard(bot, rawLeaderboard);
 
-            const lb = leaderboard.map(e => `**${e.position}.** ${e.username}#${e.discriminator} \n **Level**: ${e.level} \n **XP**: ${e.xp.toLocaleString()}`);
-            var embed2 = new Discord.MessageEmbed()
-                .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
-                .setTitle("🏆 **Ljestvica najaktivnijih:**")
-                .setDescription(lb, lb.join("\n\n"))
-                .setColor("#00FFF3")
-                .setFooter('🌀| Dismiss™ by vjdin', 'https://cdn.discordapp.com/attachments/756139786560864299/795607439236005888/logo.png')
-            message.channel.send(embed2);
+            const lb = leaderboard.map(e => `${e.position}. ${e.username}#${e.discriminator} \n Level: ${e.level} \n XP: ${e.xp.toLocaleString()}`);
+
+            message.channel.send(`${lb.join("\n\n")}`)
         }
     }
 })
