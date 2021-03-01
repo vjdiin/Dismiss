@@ -172,6 +172,14 @@ bot.on("message", async message => {
 });
 
 bot.on("message", async message => {
+    const command = message.content.toLocaleLowerCase();
+
+    if (command === "hi") {
+        message.reply("Ćao!")
+    }
+});
+
+bot.on("message", async message => {
     let messageArray = message.content.split(" ");
     let cmd = messageArray[0];
 
