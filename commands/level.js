@@ -41,6 +41,7 @@ module.exports.run = async (bot, message, args) => {
         .setProgressBarTrack("#23272a")
         .setUsername(target.username)
         .setLevel(user.level)
+        .setLevelColor("#00FFF3")
         .setDiscriminator(target.discriminator)
         .setRank(0, "\u200b", false)
         .setBackground("IMAGE", rankBackground)

@@ -40,6 +40,5 @@ module.exports.run = async (bot, message, args) => {
 
 module.exports.config = {
     name: "clear",
-    usage: "%clear",
     aliases: ['c', 'purge']
 }

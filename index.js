@@ -27,22 +27,11 @@ bot.on("message", async message => {
     if (hasLeveledUp) {
         const user = await Levels.fetch(message.author.id, message.guild.id);
         message.channel.send(`<:d_tada:807184344023433217> **Čestitam** ${message.author.toString()}, upravo si prešao/la na level **${user.level}**!`);
-
-        if (command === '%leaderboard' || command === '%lb') {
-            const rawLeaderboard = await Levels.fetchLeaderboard(message.guild.id, 5);
-            if (rawLeaderboard.length < 1) return reply("Nobody's in leaderboard yet.");
-
-            const leaderboard = Levels.computeLeaderboard(bot, rawLeaderboard);
-
-            const lb = leaderboard.map(e => `${e.position}. ${e.username}#${e.discriminator} \n Level: ${e.level} \n XP: ${e.xp.toLocaleString()}`);
-
-            message.channel.send(`${lb.join("\n\n")}`)
-        }
     }
 })
 
 bot.on("guildMemberAdd", member => {
-    const welcomeChannel = member.guild.channels.cache.find(channel => channel.name === '💧・chat')
+    const welcomeChannel = member.guild.channels.cache.find(channel => channel.name === '💬・global')
     var welcomeEmbed = new Discord.MessageEmbed()
         .setColor("#00FFF3")
         .setDescription("<:novo:788762770593546241> **Novi član!**")
@@ -180,6 +169,191 @@ bot.on("message", async message => {
             });
         }
     }
+});
+
+bot.on("message", async message => {
+    let messageArray = message.content.split(" ");
+    let cmd = messageArray[0];
+
+    if (cmd === '%verification') {
+        let embed = new Discord.MessageEmbed()
+            .setTitle('<:d_accepted:788762768940597259> Verifikacija!')
+            .setColor('#00FFF3')
+            .setDescription('**Da biste dobili pristup serveru reaktujte sa ✅ ispod ove poruke!**')
+            .setFooter('🌀| Dismiss™ by vjdin', 'https://cdn.discordapp.com/attachments/756139786560864299/795607439236005888/logo.png')
+        let msgEmbed = await message.channel.send(embed);
+        msgEmbed.react('✅')
+    }
+});
+
+bot.on("messageReactionAdd", async (reaction, user) => {
+    if (reaction.message.guild) await reaction.message.fetch();
+    if (reaction.partial) await reaction.fetch();
+
+    if (user.bot) return;
+    if (!reaction.message.guild) return;
+
+    if (reaction.message.channel.id === "791597882796539924") {
+        if (reaction.emoji.name === '✅') {
+            await reaction.message.guild.members.cache.get(user.id).roles.add("773479863779590164")
+        }
+    }
 })
+
+bot.on("messageReactionRemove", async (reaction, user) => {
+    if (reaction.message.guild) await reaction.message.fetch();
+    if (reaction.partial) await reaction.fetch();
+
+    if (user.bot) return;
+    if (!reaction.message.guild) return;
+
+    if (reaction.message.channel.id === "791597882796539924") {
+        if (reaction.emoji.name === '✅') {
+            await reaction.message.guild.members.cache.get(user.id).roles.remove("773479863779590164")
+        }
+    }
+})
+
+bot.on("message", async message => {
+    let messageArray = message.content.split(" ");
+    let cmd = messageArray[0];
+
+    if (!message.member.hasPermission('ADMINISTRATOR')) return;
+
+    if (cmd === '%selfroles') {
+        message.channel.send("https://cdn.discordapp.com/attachments/756139786560864299/816032536940642344/self_roles.png")
+
+        var embed1 = new Discord.MessageEmbed()
+            .setTitle('<:d_strelica:788762774741843988> **Self roles**')
+            .setDescription("**Ovdje možete preuzeti self-roles! Sve što trebate uraditi jeste da ostavite reakciju ispod poruke.**")
+            .setColor("YELLOW")
+        message.channel.send(embed1);
+
+        let embedSpol = new Discord.MessageEmbed()
+            .setTitle('<:d_arrow:777511712433635359> Spol:')
+            .setColor('YELLOW')
+            .setDescription(`<:d_arrow:777511712433635359> <@&782599250982076416> \n <:d_arrow:777511712433635359> <@&782626085551472660>`)
+        let msgEmbed1 = await message.channel.send(embedSpol);
+        msgEmbed1.react('🚹')
+        msgEmbed1.react('🚺')
+
+        let embedDrzave = new Discord.MessageEmbed()
+            .setTitle('<:d_arrow:777511712433635359> Države:')
+            .setColor('YELLOW')
+            .setDescription(`<:d_arrow:777511712433635359> <@&782626273369128971> \n <:d_arrow:777511712433635359> <@&782626270223400970> \n <:d_arrow:777511712433635359> <@&782626272744046592> \n <:d_arrow:777511712433635359> <@&782626533109137458> \n <:d_arrow:777511712433635359> <@&782626534938771546>`)
+        let msgEmbed2 = await message.channel.send(embedDrzave);
+        msgEmbed2.react('🇧🇦')
+        msgEmbed2.react('🇭🇷')
+        msgEmbed2.react('🇷🇸')
+        msgEmbed2.react('🇲🇪')
+        msgEmbed2.react('🇲🇰')
+
+        let embedGodine = new Discord.MessageEmbed()
+            .setTitle('<:d_arrow:777511712433635359> Godine:')
+            .setColor('YELLOW')
+            .setDescription(`<:d_arrow:777511712433635359> <@&782626991886172241> \n <:d_arrow:777511712433635359> <@&782626990469283840> \n <:d_arrow:777511712433635359> <@&782626988208291852>`)
+        let msgEmbed3 = await message.channel.send(embedGodine);
+        msgEmbed3.react('🧢')
+        msgEmbed3.react('🎓')
+        msgEmbed3.react('🎩')
+    }
+});
+
+bot.on("messageReactionAdd", async (reaction, user) => {
+    if (reaction.message.guild) await reaction.message.fetch();
+    if (reaction.partial) await reaction.fetch();
+
+    if (user.bot) return;
+    if (!reaction.message.guild) return;
+
+    if (reaction.message.channel.id === "791597882796539924") {
+        if (reaction.emoji.name === '🚹') {
+            await reaction.message.guild.members.cache.get(user.id).roles.add("782599250982076416")
+        }
+        if (reaction.emoji.name === '🚺') {
+            await reaction.message.guild.members.cache.get(user.id).roles.add("782626085551472660")
+        }
+        if (reaction.emoji.name === '🇧🇦') {
+            await reaction.message.guild.members.cache.get(user.id).roles.add("782626273369128971")
+        }
+        if (reaction.emoji.name === '🇭🇷') {
+            await reaction.message.guild.members.cache.get(user.id).roles.add("782626270223400970")
+        }
+        if (reaction.emoji.name === '🇷🇸') {
+            await reaction.message.guild.members.cache.get(user.id).roles.add("782626272744046592")
+        }
+        if (reaction.emoji.name === '🇲🇪') {
+            await reaction.message.guild.members.cache.get(user.id).roles.add("782626533109137458")
+        }
+        if (reaction.emoji.name === '🇲🇰') {
+            await reaction.message.guild.members.cache.get(user.id).roles.add("782626534938771546")
+        }
+        if (reaction.emoji.name === '🧢') {
+            await reaction.message.guild.members.cache.get(user.id).roles.add("782626991886172241")
+        }
+        if (reaction.emoji.name === '🎓') {
+            await reaction.message.guild.members.cache.get(user.id).roles.add("782626990469283840")
+        }
+        if (reaction.emoji.name === '🎩') {
+            await reaction.message.guild.members.cache.get(user.id).roles.add("782626988208291852")
+        }
+    }
+})
+
+bot.on("messageReactionRemove", async (reaction, user) => {
+    if (reaction.message.guild) await reaction.message.fetch();
+    if (reaction.partial) await reaction.fetch();
+
+    if (user.bot) return;
+    if (!reaction.message.guild) return;
+
+    if (reaction.message.channel.id === "791597882796539924") {
+        if (reaction.emoji.name === '🚹') {
+            await reaction.message.guild.members.cache.get(user.id).roles.remove("782599250982076416")
+        }
+        if (reaction.emoji.name === '🚺') {
+            await reaction.message.guild.members.cache.get(user.id).roles.remove("782626085551472660")
+        }
+        if (reaction.emoji.name === '🇧🇦') {
+            await reaction.message.guild.members.cache.get(user.id).roles.remove("782626273369128971")
+        }
+        if (reaction.emoji.name === '🇭🇷') {
+            await reaction.message.guild.members.cache.get(user.id).roles.remove("782626270223400970")
+        }
+        if (reaction.emoji.name === '🇷🇸') {
+            await reaction.message.guild.members.cache.get(user.id).roles.remove("782626272744046592")
+        }
+        if (reaction.emoji.name === '🇲🇪') {
+            await reaction.message.guild.members.cache.get(user.id).roles.remove("782626533109137458")
+        }
+        if (reaction.emoji.name === '🇲🇰') {
+            await reaction.message.guild.members.cache.get(user.id).roles.remove("782626534938771546")
+        }
+        if (reaction.emoji.name === '🧢') {
+            await reaction.message.guild.members.cache.get(user.id).roles.remove("782626991886172241")
+        }
+        if (reaction.emoji.name === '🎓') {
+            await reaction.message.guild.members.cache.get(user.id).roles.remove("782626990469283840")
+        }
+        if (reaction.emoji.name === '🎩') {
+            await reaction.message.guild.members.cache.get(user.id).roles.remove("782626988208291852")
+        }
+    }
+});
+
+bot.on("message", async message => {
+    let messageArray = message.content.split(" ");
+    let cmd = messageArray[0];
+
+    if (!message.member.hasPermission('ADMINISTRATOR')) return;
+
+    if (cmd === '%click') {
+        let click = new Discord.MessageEmbed()
+            .setColor('#00FFF3')
+            .setDescription(`<:d_vortex:788762770413715506> **Klikni ispod** <:d_vortex:788762770413715506>`)
+        let msgEmbed4 = await message.channel.send(click);
+        msgEmbed4.react('<:d_gg:813101466532446240>')
+    }
+});
 
 bot.login(botsettings.token);
