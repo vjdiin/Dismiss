@@ -11,7 +11,7 @@ module.exports.run = async (bot, message, args) => {
     if (isNaN(args[0]) || parseInt(args[0]) <= 0 || !message.member.hasPermission("MANAGE_MESSAGES")) {
         var embed2 = new Discord.MessageEmbed()
             .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
-            .setDescription('<:denied:788762769440374855> **Nemate premisije za upotrebu ove komande, ili ste je nepravilno upotrijebili!**')
+            .setDescription('<:denied:788762769440374855> **Nemate permisije za upotrebu ove komande, ili ste je nepravilno upotrijebili!**')
             .setColor('RED')
         message.channel.send(embed2).then((message) => {
             message.delete({ timeout: 5000 })

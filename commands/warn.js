@@ -11,7 +11,7 @@ module.exports.run = async (bot, message, args) => {
     if (!message.member.hasPermission("MANAGE_MESSAGES")) {
         var embed1 = new Discord.MessageEmbed()
             .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
-            .setDescription('<:denied:788762769440374855> **Nemate premisije za upotrebu ove komande!**')
+            .setDescription('<:denied:788762769440374855> **Nemate permisije za upotrebu ove komande!**')
             .setColor('RED')
         message.channel.send(embed1).then((message) => {
             message.delete({ timeout: 5000 })
