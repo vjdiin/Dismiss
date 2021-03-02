@@ -274,7 +274,7 @@ bot.on("messageReactionAdd", async (reaction, user) => {
     if (user.bot) return;
     if (!reaction.message.guild) return;
 
-    if (reaction.message.channel.id === "791597882796539924") {
+    if (reaction.message.channel.id === "782597651375325214") {
         if (reaction.emoji.name === '🚹') {
             await reaction.message.guild.members.cache.get(user.id).roles.add("782599250982076416")
         }
@@ -315,7 +315,7 @@ bot.on("messageReactionRemove", async (reaction, user) => {
     if (user.bot) return;
     if (!reaction.message.guild) return;
 
-    if (reaction.message.channel.id === "791597882796539924") {
+    if (reaction.message.channel.id === "782597651375325214") {
         if (reaction.emoji.name === '🚹') {
             await reaction.message.guild.members.cache.get(user.id).roles.remove("782599250982076416")
         }
