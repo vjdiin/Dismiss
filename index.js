@@ -3,7 +3,6 @@ const bot = new Discord.Client({
     partials: ['MESSAGE', 'CHANNEL', 'REACTION']
 });
 require('dotenv').config();
-const botsettings = require('./botsettings.json');
 const mongoose = require('mongoose');
 const ms = require("ms");
 const DisTube = require('distube');
@@ -93,7 +92,7 @@ fs.readdir("./commands/", (err, files) => {
 bot.on("message", async message => {
     if (message.author.bot || message.channel.type === "dm") return;
 
-    let prefix = botsettings.prefix;
+    let prefix = '%';
     let messageArray = message.content.split(" ");
     let cmd = messageArray[0];
     let args = message.content.substring(message.content.indexOf(' ') + 1);
