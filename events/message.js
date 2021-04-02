@@ -6,7 +6,7 @@ module.exports = async (bot, message) => {
 	const args = messageArray.slice(1);
 
 	if (message.author.bot || message.channel.type === 'dm') return;
-	const prefix = "%";
+	const prefix = "%"; 
 
 	if (message.content.match(new RegExp(`^<@!?${bot.user.id}>( |)$`))) return message.channel.send(`${message.guild.name}'s Prefix is \`${prefix}\`\n\nTo get a list of commands, say \`${prefix}help\``);
 
