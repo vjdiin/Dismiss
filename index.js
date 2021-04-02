@@ -2,6 +2,7 @@ const Discord = require('discord.js');
 const bot = new Discord.Client({
     partials: ['MESSAGE', 'CHANNEL', 'REACTION']
 });
+require('dotenv').config();
 const botsettings = require('./botsettings.json');
 const mongoose = require('mongoose');
 const ms = require("ms");
@@ -364,4 +365,4 @@ bot.on("message", async message => {
     }
 });
 
-bot.login(botsettings.token);
+bot.login(process.env.TOKEN);
