@@ -8,7 +8,7 @@ const ms = require("ms");
 const DisTube = require('distube');
 const Levels = require("discord-xp");
 
-Levels.setURL("mongodb+srv://vjdin:Ajdin321@dismiss.lkgeo.mongodb.net/database");
+Levels.setURL(`mongodb+srv://vjdin:${process.env.PASSWORD}@dismiss.lkgeo.mongodb.net/database`);
 
 bot.on("message", async message => {
     if (!message.guild) return;
